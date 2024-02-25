@@ -13,39 +13,40 @@
                     {{ str_replace('-', ' ', Route::currentRouteName()) }}</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4 d-flex justify-content-end" id="navbar">
-                <div class="nav-item d-flex align-self-end">
-                    <a href="https://www.creative-tim.com/product/soft-ui-dashboard-laravel-livewire" target="_blank"
-                        class="btn btn-primary active mb-0 text-white" role="button" aria-pressed="true">
-                        Download
-                    </a>
-                </div>
-                <div class="ms-md-3 pe-md-3 d-flex align-items-center">
-                    <div class="input-group">
-                        <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                        <input type="text" class="form-control" placeholder="Type here...">
-                    </div>
-                </div>
-                <ul class="navbar-nav justify-content-end">
+                <ul class="navbar-nav ms-md-3 pe-md-3 justify-content-end">
                     <li class="nav-item d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
-                            <livewire:auth.logout />
+                            Points to Give: <span class="text-dark">4560 <i class="fa fa-star text-warning"></i></span>
                         </a>
                     </li>
-                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                            <div class="sidenav-toggler-inner">
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
+                    <li class="nav-item dropdown d-flex align-items-center" style="margin-left: 2vw;">
+                        <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user cursor-pointer"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                            <div class="sidenav-toggler-inner" style="width: 100%!important;">
+                                <p class="mb-0 user-name font-weight-bold d-flex">Mirhan Almendi</p>
+                                <i class="sidenav-toggler-line bg-black"></i>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <a href="{{ route('profile') }}" class="nav-link text-body p-0 d-flex align-items-center">
+                                    <i class="fa fa-user me-2"></i> Profile
+                                </a>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <a href="javascript:;" class="nav-link text-body p-0 d-flex align-items-center">
+                                <i class="fa fa-sign-out-alt me-2"></i> <span class="d-sm-inline d-none {{ in_array(request()->route()->getName(),['profile', 'my-profile']) ? 'text-white' : '' }}" wire:click="logout">Logout</span>
+                                </a>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <a href="javascript:;" class="nav-link text-body p-0 d-flex align-items-center">
+                                    <i class="fa fa-cog me-2"></i> Settings
+                                </a>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <a href="javascript:;" class="nav-link text-body p-0 d-flex align-items-center">
+                                    <i class="fa fa-question-circle me-2"></i> Help
+                                </a>
                             </div>
-                        </a>
+                        </ul>
                     </li>
-                    <li class="nav-item px-3 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body p-0">
-                            <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                    <li class="nav-item dropdown d-flex align-items-center" style="margin-left: 2vw;">
                         <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-bell cursor-pointer"></i>
                         </a>
@@ -54,11 +55,29 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                            <img src="../assets/img/icons/delivery-man.png" class="avatar avatar-sm  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
-                                                <span class="font-weight-bold">New message</span> from Laur
+                                                <span class="font-weight-bold">Logistic Team #7</span> picked up from <span class="font-weight-bold">location #2</span> on Zincirlikuyu, İstanbul
+                                            </h6>
+                                            <p class="text-xs text-secondary mb-0">
+                                                <i class="fa fa-clock me-1"></i>
+                                                10 minutes ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="mb-2">
+                                <a class="dropdown-item border-radius-md" href="javascript:;">
+                                    <div class="d-flex py-1">
+                                        <div class="my-auto">
+                                            <img src="../assets/img/icons/location.png" class="avatar avatar-sm  me-3 ">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="text-sm font-weight-normal mb-1">
+                                                <span class="font-weight-bold">Logistic Team #7</span> are at <span class="font-weight-bold">location #2</span> on Zincirlikuyu, İstanbul
                                             </h6>
                                             <p class="text-xs text-secondary mb-0">
                                                 <i class="fa fa-clock me-1"></i>
@@ -71,17 +90,16 @@
                             <li class="mb-2">
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
-                                        <div class="my-auto">
-                                            <img src="../assets/img/small-logos/logo-spotify.svg"
-                                                class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                                    <div class="my-auto">
+                                            <img src="../assets/img/icons/pick-up-truck.png" class="avatar avatar-sm  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
-                                                <span class="font-weight-bold">New album</span> by Travis Scott
+                                                <span class="font-weight-bold">Logistic Team #1</span> are on their way to Beşiktaş, İstanbul
                                             </h6>
                                             <p class="text-xs text-secondary mb-0">
                                                 <i class="fa fa-clock me-1"></i>
-                                                1 day
+                                                36 minutes ago
                                             </p>
                                         </div>
                                     </div>
@@ -90,39 +108,34 @@
                             <li>
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
-                                        <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                                            <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                <title>credit-card</title>
-                                                <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
-                                                    fill-rule="evenodd">
-                                                    <g id="Rounded-Icons"
-                                                        transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
-                                                        fill-rule="nonzero">
-                                                        <g id="Icons-with-opacity"
-                                                            transform="translate(1716.000000, 291.000000)">
-                                                            <g id="credit-card"
-                                                                transform="translate(453.000000, 454.000000)">
-                                                                <path class="color-background"
-                                                                    d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                    id="Path" opacity="0.593633743"></path>
-                                                                <path class="color-background"
-                                                                    d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
-                                                                    id="Shape"></path>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </g>
-                                            </svg>
+                                    <div class="my-auto">
+                                            <img src="../assets/img/icons/pickup-car.png" class="avatar avatar-sm  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
-                                                Payment successfully completed
+                                                <span class="font-weight-bold">Logistic Team #5</span> are on their way back to the warehouse
                                             </h6>
                                             <p class="text-xs text-secondary mb-0">
                                                 <i class="fa fa-clock me-1"></i>
-                                                2 days
+                                                1 hour ago
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item border-radius-md" href="javascript:;">
+                                    <div class="d-flex py-1">
+                                    <div class="my-auto">
+                                            <img src="../assets/img/icons/notification.png" class="avatar avatar-sm  me-3 ">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="text-sm font-weight-normal mb-1">
+                                                <span class="font-weight-bold">New pick-up request</span> from near Beşiktaş, İstanbul
+                                            </h6>
+                                            <p class="text-xs text-secondary mb-0">
+                                                <i class="fa fa-clock me-1"></i>
+                                                2.5 hours ago
                                             </p>
                                         </div>
                                     </div>
